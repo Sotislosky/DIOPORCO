@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AR Menu</title>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ar.js@3.3.2/aframe/build/aframe-ar.min.js"></script>
+  <script src="app.js"></script>
+  <style>
+    #menu {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 1;
+      background: rgba(255,255,255,0.9);
+      padding: 10px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div id="menu">
+    <h3>Select dishes</h3>
+    <label><input type="checkbox" value="pizza"> Pizza</label><br>
+    <label><input type="checkbox" value="burger"> Burger</label><br>
+    <label><input type="checkbox" value="sushi"> Sushi</label><br>
+    <button id="start">Start AR</button>
+  </div>
+
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+    <a-marker id="marker" type="pattern" url="qr-marker.patt"></a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+</html>
